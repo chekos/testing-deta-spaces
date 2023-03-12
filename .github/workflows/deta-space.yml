@@ -1,5 +1,5 @@
 name: Set up Space CLI
-on: push
+on: workflow_dispatch
 
 jobs:
   set-up-space-cli:
