@@ -1,5 +1,5 @@
 name: Push to Space
-on: push
+on: workflow_dispatch
 
 jobs:
   push-to-space:
