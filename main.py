@@ -25,7 +25,7 @@ async def index():
 async def get_todos_htmx():
     # Fetch all items from the Base.
     todos = todos_base.fetch()
-    # Return the items as JSON.
+    # Return the items as HTML list.
     todos_html = ""
     for item in todos.items:
         key, text = item["key"], item["text"]
@@ -40,7 +40,7 @@ async def add_todo_htmx(text: str = Form()):
     print(text)
     # Put the item into the Base.
     resp = todos_base.put({"text": text})
-    # Return the response as JSON.
+    # Replace button.
     todo_input = """<input
       id="todo-input"
       type="text"
