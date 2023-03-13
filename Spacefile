@@ -8,6 +8,4 @@ micros:
     presets:
       env:
         - name: CLIENT_ID
-          description: Client ID
         - name: CLIENT_SECRET
-          description: Client secret
