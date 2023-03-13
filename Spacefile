@@ -5,3 +5,9 @@ micros:
     src: .
     engine: python3.9
     primary: true
+    presets:
+      env:
+        - name: CLIENT_ID
+          description: Client ID
+        - name: CLIENT_SECRET
+          description: Client secret
