@@ -32,3 +32,10 @@ async def add_todo(item: TodoItem):
     resp = todos_base.put(item.dict())
     # Return the response as JSON.
     return resp
+
+@app.post("/api/todos-htmx", status_code=201)
+async def add_todo_htmx(text: str):
+    # Put the item into the Base.
+    resp = todos_base.put({"text": text)
+    # Return the response as JSON.
+    return resp
