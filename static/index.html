@@ -23,8 +23,8 @@
     <img src="https://deta.space/docs_assets/developer.gif" alt="Cool GIF" />
     <h2>Play around with the form below to save todo items to a Deta Base!</h2>
     
-    <input type="text" name="q"
-    data-hx-post="/api/todos"
+    <input type="text" name="text"
+    hx-post="/api/todos-htmx"
     hx-trigger="keyup changed delay:500ms"
     hx-target="#search-results"
     placeholder="Search..."
