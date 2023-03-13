@@ -24,7 +24,7 @@
     <h2>Play around with the form below to save todo items to a Deta Base!</h2>
     
     <input type="text" name="q"
-    hx-post="/api/todos"
+    data-hx-post="/api/todos"
     hx-trigger="keyup changed delay:500ms"
     hx-target="#search-results"
     placeholder="Search..."
