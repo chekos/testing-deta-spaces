@@ -5,13 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="A simple Python app deployed on Space" />
     <title>Python App on Space</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
     <script
       src="https://unpkg.com/htmx.org@1.8.6"
       integrity="sha384-Bj8qm/6B+71E6FQSySofJOUjA/gq330vEqjFx9LakWybUySyI1IQHwPtbTU7bNwx"
       crossorigin="anonymous"
     ></script>
     <style>
-      :root {
+      :root,
+      .container {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -23,44 +30,33 @@
     </style>
   </head>
   <body>
-    <h1>Hello from Python on Space! ✨</h1>
-    <img src="https://deta.space/docs_assets/developer.gif" alt="Cool GIF" />
-    <h2>Play around with the form below to save todo items to a Deta Base!</h2>
-
-    <input
-      type="text"
-      name="text"
-      hx-post="/api/todos-htmx"
-      hx-trigger="keyup changed delay:500ms"
-      hx-target="#search-results"
-      placeholder="Search..."
-    />
-    <div id="search-results"></div>
-
-    <span>Enter some text:</span>
-    <input type="text" id="todo-text" />
-    <button onclick="addTodo();">Submit</button>
-    <h2>Here are your todo items:</h2>
-    <ul id="todo-list"></ul>
-    <script>
-      async function updateList() {
-        const list = document.getElementById("todo-list");
-        const response = await fetch("/api/todos");
-        const todos = await response.json();
-        list.innerHTML = todos.map((todo) => `<li>${todo.text}</li>`).join("");
-      }
-      async function addTodo() {
-        const text = document.getElementById("todo-text").value;
-        await fetch("/api/todos", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ text }),
-        });
-        updateList();
-      }
-      updateList();
-    </script>
+    <div class="container">
+      <h1>Hello from Python on Space! ✨</h1>
+      <img src="https://deta.space/docs_assets/developer.gif" alt="Cool GIF" />
+      <h2>
+        Play around with the form below to save todo items to a Deta Base!
+      </h2>
+      <div>
+        <span>Enter some text:</span>
+        <input
+          id="todo-input"
+          type="text"
+          name="text"
+          hx-post="/api/todos"
+          hx-trigger="keyup changed delay:500ms"
+          placeholder="Add a new todo..."
+        />
+      </div>
+      <h2>Here are your todo items:</h2>
+      <p>To delete an item just click on it</p>
+      <ul id="todo-list">
+        <div hx-get="/api/todos" hx-trigger="new-todo from:body, load"></div>
+      </ul>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
