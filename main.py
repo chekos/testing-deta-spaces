@@ -2,6 +2,8 @@ from deta import Base
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel  # pylint: disable=no-name-in-module
+from dotenv import load_dotenv
+load_dotenv()
 
 app = FastAPI()
 # Connect to a Base for storing todo items.
