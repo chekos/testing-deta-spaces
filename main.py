@@ -16,7 +16,7 @@ async def index():
     with open("./static/index.html") as file:
         return HTMLResponse(file.read())
 
-@app.get("/")
+@app.get("/login")
 async def login():
     with open("./static/login.html") as file:
         return HTMLResponse(file.read())
