@@ -7,4 +7,8 @@ micros:
     presets:
       env:
         - name: CLIENT_ID
+        description: Client ID
+        default: "huh"
         - name: CLIENT_SECRET
+        description: Client secret
+        default: "shh"
