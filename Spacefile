@@ -1,14 +1,6 @@
 # Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
 v: 0
 micros:
-  - name: testing-deta-space
+  - name: testing-deta-spaces
     src: .
     engine: python3.9
-    presets:
-      env:
-        - name: CLIENT_ID
-          description: Client ID
-          default: "huh"
-        - name: CLIENT_SECRET
-          description: Client secret
-          default: "shh"
