@@ -4,7 +4,6 @@ micros:
   - name: testing-deta-spaces
     src: .
     engine: python3.9
-    primary: true
     presets:
       env:
         - name: CLIENT_ID
