@@ -4,3 +4,9 @@ micros:
   - name: testing-deta-spaces
     src: .
     engine: python3.9
+    presets:
+      env:
+        - name: CLIENT_ID
+          description: Client ID
+        - name: CLIENT_SECRET
+          description: Client Secret
