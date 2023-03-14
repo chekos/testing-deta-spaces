@@ -11,10 +11,6 @@ app = FastAPI()
 todos_base = Base("todos")
 
 
-class TodoItem(BaseModel):
-    text: str
-
-
 @app.get("/")
 async def index():
     with open("./static/index.html") as file:
