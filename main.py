@@ -16,6 +16,11 @@ async def index():
     with open("./static/index.html") as file:
         return HTMLResponse(file.read())
 
+@app.get("/")
+async def login():
+    with open("./static/login.html") as file:
+        return HTMLResponse(file.read())
+
 
 @app.get("/api/todos")
 async def get_todos_htmx():
